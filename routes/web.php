@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::get('/hello', function () {
+    return view('hello');
 });
+Route::get('users/{id}/friends/{slug}', function ($id, $slug) {
+    return $slug ." users"." " . "$id" ."friends.";
+})->where (['id' => '[0-9]+','slug' =>'[A-Za-z]+']);
